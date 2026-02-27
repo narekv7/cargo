@@ -1,0 +1,141 @@
+.about {
+  padding: 4rem 0;
+  background: #F5F7FA;
+}
+
+.about-layout {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .about-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 4rem;
+  }
+}
+
+.about-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  font-family: "Noto Sans Armenian", "Noto Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.about-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent-red);
+}
+
+.about-label-text {
+  font-family: "Noto Sans Armenian", "Noto Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.about-title {
+  font-family: "Arm Hmks Bebas Neue", "Bebas Neue", "Noto Sans", sans-serif;
+  font-size: clamp(1.75rem, 3.5vw + 0.5rem, 2.8125rem);
+  font-weight: 400;
+  line-height: 1.178;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: #1F2A37;
+}
+
+.about-copy {
+  color: var(--dark-60);
+  font-size: 0.9375rem;
+  max-width: 40rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-copy:last-of-type {
+  margin-bottom: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 180px));
+  grid-template-rows: repeat(2, 160px);
+  gap: 8px;
+  justify-content: start;
+}
+
+@media (min-width: 480px) {
+  .about-grid {
+    grid-template-columns: repeat(3, 180px);
+    gap: 10px;
+  }
+}
+
+.about-card {
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  transition: box-shadow var(--ease-slow);
+}
+
+.about-card--stat {
+  border: 1px solid var(--accent-red);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.about-card--image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+.about-card--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+.about-card-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.about-card-label {
+  font-family: "Noto Sans Armenian", "Noto Sans", sans-serif;
+  font-size: clamp(0.6875rem, 2vw + 0.4rem, 0.875rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+  color: var(--dark-60);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
