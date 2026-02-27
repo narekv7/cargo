@@ -6,4 +6,3 @@ export default defineConfig({
   // GitHub Pages base path: https://narekv7.github.io/cargo/
   base: "/cargo/",
 });
-

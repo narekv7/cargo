@@ -53,6 +53,17 @@ body {
   overflow-x: hidden;
 }
 
+/* Ensure anchored sections are not hidden under sticky header */
+.hero,
+.about,
+.services,
+.core-values,
+.global-reach,
+.why-choose,
+.quote-section {
+  scroll-margin-top: 6rem;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -184,11 +195,9 @@ textarea {
 
 .cta-block {
   padding: 3.5rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(230, 57, 70, 0.92),
-    rgba(230, 57, 70, 0.96)
-  );
+  background-color: var(--accent-red);
+  background-size: cover;
+  background-position: center;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -198,26 +207,38 @@ textarea {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/cta-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  mix-blend-mode: screen;
-  opacity: 0.45;
+  background: linear-gradient(
+    135deg,
+    rgba(230, 57, 70, 0.92),
+    rgba(230, 57, 70, 0.96)
+  );
+  opacity: 0.9;
   pointer-events: none;
 }
 
 .cta-block .container {
   position: relative;
   z-index: 1;
+  max-width: 960px;
 }
 
 .cta-block h2 {
   font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-  font-weight: 700;
+  font-weight: 600;
   color: #fff;
   margin-bottom: 0.85rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   text-transform: uppercase;
+  font-family:
+    "Noto Sans Armenian",
+    "Noto Sans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen-Sans,
+    Ubuntu,
+    sans-serif;
 }
 
 .cta-block p {
@@ -227,16 +248,17 @@ textarea {
 }
 
 .cta-block .container {
-  max-width: 720px;
+  max-width: 960px;
 }
 
 .cta-btn {
   min-width: 180px;
   justify-content: center;
-  border-radius: 999px;
+  border-radius: 8px;
   background: #fff;
   color: var(--accent-red);
   border: 2px solid #fff;
+  font-family: "Arm Hmks Bebas Neue", "Bebas Neue", "Noto Sans", sans-serif;
 }
 
 .cta-btn:hover {
@@ -293,14 +315,15 @@ textarea {
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.9rem;
-  border-radius: 999px;
+  border-radius: 8px;
   border: 2px solid var(--accent-red);
   background: transparent;
   color: var(--accent-red);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-family: "Arm Hmks Bebas Neue", "Bebas Neue", "Noto Sans", sans-serif;
 }
 
 .geo-btn:hover {
@@ -315,7 +338,7 @@ textarea {
 
 .why-choose {
   padding: 4rem 0;
-  background: var(--bright-10);
+  background: #F5F7FA;
 }
 
 .features-grid {
@@ -396,6 +419,12 @@ textarea {
   background: var(--dark);
 }
 
+.quote-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
 .quote-section .section-title,
 .quote-section .section-sub {
   color: #fff;
@@ -418,6 +447,11 @@ textarea {
 
 .quote-form {
   max-width: 100%;
+}
+
+.quote-submit-wrap {
+  max-width: 900px;
+  margin: 1.75rem auto 0;
 }
 
 .form-row {
@@ -452,6 +486,17 @@ textarea {
   color: var(--dark);
 }
 
+.quote-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23333' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 10px 6px;
+}
+
 .quote-form input:focus,
 .quote-form textarea:focus,
 .quote-form select:focus {
@@ -471,9 +516,11 @@ textarea {
 
 .quote-submit {
   width: 100%;
-  margin-top: 1.75rem;
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-family: "Arm Hmks Bebas Neue", "Bebas Neue", "Noto Sans", sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .site-footer {
