@@ -3,8 +3,6 @@ import { useInViewOnce } from "../../hooks/useInViewOnce";
 
 type Variant = "left" | "right" | "up" | "top";
 
-type ElementTag = keyof JSX.IntrinsicElements;
-
 export interface AnimatedSectionProps
   extends React.HTMLAttributes<HTMLElement> {
   /**
@@ -16,13 +14,13 @@ export interface AnimatedSectionProps
    */
   variant?: Variant;
   /**
-   * Semantic element to render as, e.g. "section", "div".
+   * Semantic element to render as, e.g. "section", "div", "article".
    */
-  as?: ElementTag;
+  as?: React.ElementType;
 }
 
 export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
-  as: Tag = "section",
+  as: Component = "section",
   variant = "up",
   className = "",
   children,
@@ -48,10 +46,16 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     .filter(Boolean)
     .join(" ");
 
+  const ComponentToRender = Component as React.ElementType;
+
   return (
-    <Tag ref={ref as React.RefObject<any>} className={classes} {...rest}>
+    <ComponentToRender
+      ref={ref as React.RefObject<any>}
+      className={classes}
+      {...rest}
+    >
       {children}
-    </Tag>
+    </ComponentToRender>
   );
 };
 

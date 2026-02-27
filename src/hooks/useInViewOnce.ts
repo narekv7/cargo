@@ -9,7 +9,7 @@ export type UseInViewOnceOptions = IntersectionObserverInit & {
 };
 
 export interface UseInViewOnceResult<T extends HTMLElement> {
-  ref: React.RefObject<T>;
+  ref: React.RefObject<T | null>;
   isVisible: boolean;
 }
 
@@ -19,7 +19,7 @@ export interface UseInViewOnceResult<T extends HTMLElement> {
  * in and out, so animations can replay every time.
  */
 export function useInViewOnce<T extends HTMLElement = HTMLElement>(
-  options?: UseInViewOnceOptions
+  options?: UseInViewOnceOptions,
 ): UseInViewOnceResult<T> {
   const { defaultVisible = false, ...observerOptions } = options || {};
   const ref = useRef<T | null>(null);
@@ -29,8 +29,10 @@ export function useInViewOnce<T extends HTMLElement = HTMLElement>(
     const node = ref.current;
     if (!node) return;
 
-    // Fallback for very old browsers or environments without IntersectionObserver.
-    if (typeof window === "undefined" || typeof IntersectionObserver === "undefined") {
+    if (
+      typeof window === "undefined" ||
+      typeof IntersectionObserver === "undefined"
+    ) {
       setIsVisible(true);
       return;
     }
@@ -45,11 +47,9 @@ export function useInViewOnce<T extends HTMLElement = HTMLElement>(
       },
       {
         root: observerOptions.root ?? null,
-        // Treat element as visible as long as ANY part is in viewport,
-        // so we only reset once it's fully out of view.
         rootMargin: observerOptions.rootMargin ?? "0px",
         threshold: observerOptions.threshold ?? 0,
-      }
+      },
     );
 
     observer.observe(node);
@@ -57,8 +57,11 @@ export function useInViewOnce<T extends HTMLElement = HTMLElement>(
     return () => {
       observer.disconnect();
     };
-  }, [isVisible, observerOptions.root, observerOptions.rootMargin, observerOptions.threshold]);
+  }, [
+    observerOptions.root,
+    observerOptions.rootMargin,
+    observerOptions.threshold,
+  ]);
 
   return { ref, isVisible };
 }
-
