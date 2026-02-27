@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Services.css";
+import { assetPath } from "../../utils/assetPath";
 
 const TABS = [
   { id: "air", label: "Air Freight" },
@@ -17,35 +18,35 @@ const SERVICES_CONTENT: Record<
     headline: "Fast, reliable shipping for high-priority items across the globe.",
     paragraph:
       "When time is of the essence and your cargo cannot afford delays, air freight provides the ultimate solution for businesses and individuals who demand speed without compromising on security. This premium shipping method leverages the world's most extensive airline networks to transport everything.",
-    image: "/images/plane.png",
+    image: assetPath("images/plane.png"),
     imageAlt: "Air freight cargo",
   },
   sea: {
     headline: "Cost-effective ocean freight for large and heavy shipments.",
     paragraph:
       "Sea freight is the backbone of global trade, offering unmatched capacity and economy for bulk cargo. We coordinate full container (FCL) and less than container (LCL) shipments with major carriers, ensuring your goods reach ports worldwide safely and on schedule.",
-    image: "/images/services-sea.jpg",
+    image: assetPath("images/services-sea.jpg"),
     imageAlt: "Sea freight and containers",
   },
   ground: {
     headline: "Door-to-door road and rail solutions for regional distribution.",
     paragraph:
       "From local trucking to cross-border rail, our ground freight network connects warehouses, factories, and retail locations. We handle customs, documentation, and last-mile delivery so your supply chain stays seamless across regions.",
-    image: "/images/services-ground.jpg",
+    image: assetPath("images/services-ground.jpg"),
     imageAlt: "Ground freight and trucking",
   },
   multimodal: {
     headline: "Combined air, sea, and ground for flexible end-to-end logistics.",
     paragraph:
       "Complex supply chains often need more than one mode. Our multimodal service designs routes that mix air, ocean, and road transport to optimize cost and speed. One point of contact, one invoice, and full visibility from origin to destination.",
-    image: "/images/services-multimodal.jpg",
+    image: assetPath("images/services-multimodal.jpg"),
     imageAlt: "Multimodal logistics",
   },
   other: {
     headline: "Warehousing, packaging, and tailored logistics support.",
     paragraph:
       "Beyond transit we offer warehousing, pick and pack, labeling, and customs brokerage. Whether you need a one-off project or ongoing support, our team tailors solutions to your requirements and integrates with your existing processes.",
-    image: "/images/services-other.jpg",
+    image: assetPath("images/services-other.jpg"),
     imageAlt: "Logistics and warehousing",
   },
 };

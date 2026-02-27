@@ -1,5 +1,6 @@
 import React from "react";
 import "./CoreValues.css";
+import { assetPath } from "../../utils/assetPath";
 
 const TOP_CARDS = [
   {
@@ -34,7 +35,7 @@ export const CoreValues: React.FC = () => {
             <div key={card.title} className="core-card core-card--text">
               <div className="core-card-header">
                 <span className="core-icon">
-                  <img src="/icons/check.svg" alt="" aria-hidden="true" />
+                  <img src={assetPath("icons/check.svg")} alt="" aria-hidden="true" />
                 </span>
                 <h3 className="core-card-title"><span className="core-card-title-pill">{card.title}</span></h3>
               </div>
@@ -47,7 +48,7 @@ export const CoreValues: React.FC = () => {
         <div className="core-values-bottom">
           <div className="core-block-image core-block-image--vessel">
             <img
-              src="/images/vessel.png"
+              src={assetPath("images/vessel.png")}
               alt="Cargo vessel at sea"
               width={286}
               height={454}
@@ -57,7 +58,7 @@ export const CoreValues: React.FC = () => {
           <div className="core-card core-card--text core-card--going-global">
             <div className="core-card-header">
               <span className="core-icon">
-                <img src="/icons/check.svg" alt="" aria-hidden="true" />
+                <img src={assetPath("icons/check.svg")} alt="" aria-hidden="true" />
               </span>
               <h3 className="core-card-title"><span className="core-card-title-pill">Going Global</span></h3>
             </div>
@@ -69,7 +70,7 @@ export const CoreValues: React.FC = () => {
           <div className="core-block core-block--port">
             <div className="core-block-image core-block-image--port">
               <img
-                src="/images/port.png"
+                src={assetPath("images/port.png")}
                 alt="Airport and cargo hub"
                 width={603}
                 height={350}

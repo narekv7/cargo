@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Header.css'
+import { assetPath } from '../../utils/assetPath'
 
 type LanguageCode = 'EN' | 'RU' | 'AM'
 
@@ -65,7 +66,7 @@ export const Header: React.FC = () => {
         <div className="header-left">
           <a href="#hero" className="logo-link" onClick={closeMobile}>
             {/* IMAGE: logo (logo.svg), target size ~175x90 */}
-            <img src="/logo.svg" alt="CARGOBULLS" width={175} height={90} />
+            <img src={assetPath('logo.svg')} alt="CARGOBULLS" width={175} height={90} />
           </a>
           <nav className="nav-desktop" aria-label="Main">
             <a href="#hero">Home</a>
@@ -78,13 +79,13 @@ export const Header: React.FC = () => {
           <div className="header-contact">
             <a href="mailto:info@cargobulls.am" className="header-contact-item">
               <span className="header-contact-icon">
-                <img src="/icons/mail.svg" alt="" aria-hidden="true" />
+                <img src={assetPath('icons/mail.svg')} alt="" aria-hidden="true" />
               </span>
               <span>info@cargobulls.am</span>
             </a>
             <a href="tel:+37493001123" className="header-contact-item">
               <span className="header-contact-icon">
-                <img src="/icons/call.svg" alt="" aria-hidden="true" />
+                <img src={assetPath('icons/call.svg')} alt="" aria-hidden="true" />
               </span>
               <span>+374 93 001123</span>
             </a>

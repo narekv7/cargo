@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import { assetPath } from "../../utils/assetPath";
 
 export const Hero: React.FC = () => {
   return (
@@ -32,7 +33,7 @@ export const Hero: React.FC = () => {
         </div>
         <div className="hero-media">
           <img
-            src="/images/containers.png"
+            src={assetPath("images/containers.png")}
             alt="Stacked shipping containers at port"
             width={800}
             height={600}

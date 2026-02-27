@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import { assetPath } from "../../utils/assetPath";
 
 export const About: React.FC = () => {
   return (
@@ -39,7 +40,7 @@ export const About: React.FC = () => {
           </div>
           <div className="about-card about-card--image">
             <img
-              src="/images/au_1.png"
+              src={assetPath("images/au_1.png")}
               alt="Cargo plane and pallets on tarmac"
               width={180}
               height={160}
@@ -48,7 +49,7 @@ export const About: React.FC = () => {
           </div>
           <div className="about-card about-card--image">
             <img
-              src="/images/au_2.png"
+              src={assetPath("images/au_2.png")}
               alt="Truck and shipping containers"
               width={180}
               height={160}
@@ -61,7 +62,7 @@ export const About: React.FC = () => {
           </div>
           <div className="about-card about-card--image">
             <img
-              src="/images/au_3.png"
+              src={assetPath("images/au_3.png")}
               alt="Airplane over cargo port"
               width={180}
               height={160}
