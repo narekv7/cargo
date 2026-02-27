@@ -8,7 +8,7 @@ import { CTASection } from "./components/CTASection/CTASection";
 import { GlobalReach } from "./components/GlobalReach/GlobalReach";
 import { QuoteSection } from "./components/QuoteSection/QuoteSection";
 import { HowWeWork } from "./components/HowWeWork/HowWeWork";
-import { Footer } from "./components/Footer/Footer";
+// import { Footer } from "./components/Footer/Footer";
 
 export const App: React.FC = () => {
   return (

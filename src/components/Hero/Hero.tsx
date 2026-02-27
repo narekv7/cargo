@@ -1,12 +1,13 @@
 import React from "react";
 import "./Hero.css";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 export const Hero: React.FC = () => {
   return (
     <section className="hero" id="hero">
       <div className="container">
-        <div className="hero-content">
+        <AnimatedSection as="div" variant="left" className="hero-content">
           <h1>
             <span className="w-blue">Delivering</span>
             <br />
@@ -30,15 +31,15 @@ export const Hero: React.FC = () => {
               Learn More
             </a>
           </div>
-        </div>
-        <div className="hero-media">
+        </AnimatedSection>
+        <AnimatedSection as="div" variant="right" className="hero-media">
           <img
             src={assetPath("images/containers.png")}
             alt="Stacked shipping containers at port"
             width={800}
             height={600}
           />
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

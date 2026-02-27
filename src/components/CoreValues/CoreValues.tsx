@@ -1,6 +1,7 @@
 import React from "react";
 import "./CoreValues.css";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 const TOP_CARDS = [
   {
@@ -21,16 +22,16 @@ export const CoreValues: React.FC = () => {
   return (
     <section className="core-values" id="core-values">
       <div className="container">
-        <div className="core-values-header">
+        <AnimatedSection as="div" variant="up" className="core-values-header">
           <div className="core-values-label">
             <span className="core-values-dot" />
             <span className="core-values-label-text">Our Core Values</span>
           </div>
           <h2 className="core-values-title">Built On Trust And Excellence</h2>
-        </div>
+        </AnimatedSection>
 
         {/* Top row: Competitive 604×202, Satisfaction 285×294, Tailored 285×294 */}
-        <div className="core-values-top">
+        <AnimatedSection as="div" variant="up" className="core-values-top">
           {TOP_CARDS.map((card) => (
             <div key={card.title} className="core-card core-card--text">
               <div className="core-card-header">
@@ -42,11 +43,15 @@ export const CoreValues: React.FC = () => {
               <p className="core-card-body">{card.description}</p>
             </div>
           ))}
-        </div>
+        </AnimatedSection>
 
         {/* Bottom row: vessel 286×454 | going global 286×454 | port 603×350 — three equal-sized columns for vessel & card */}
         <div className="core-values-bottom">
-          <div className="core-block-image core-block-image--vessel">
+          <AnimatedSection
+            as="div"
+            variant="left"
+            className="core-block-image core-block-image--vessel"
+          >
             <img
               src={assetPath("images/vessel.png")}
               alt="Cargo vessel at sea"
@@ -54,8 +59,12 @@ export const CoreValues: React.FC = () => {
               height={454}
               loading="lazy"
             />
-          </div>
-          <div className="core-card core-card--text core-card--going-global">
+          </AnimatedSection>
+          <AnimatedSection
+            as="div"
+            variant="up"
+            className="core-card core-card--text core-card--going-global"
+          >
             <div className="core-card-header">
               <span className="core-icon">
                 <img src={assetPath("icons/check.svg")} alt="" aria-hidden="true" />
@@ -66,8 +75,12 @@ export const CoreValues: React.FC = () => {
               With an extensive network spanning the globe, we connect you to
               key markets and emerging economies.
             </p>
-          </div>
-          <div className="core-block core-block--port">
+          </AnimatedSection>
+          <AnimatedSection
+            as="div"
+            variant="right"
+            className="core-block core-block--port"
+          >
             <div className="core-block-image core-block-image--port">
               <img
                 src={assetPath("images/port.png")}
@@ -77,7 +90,7 @@ export const CoreValues: React.FC = () => {
                 loading="lazy"
               />
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

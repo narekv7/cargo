@@ -1,12 +1,13 @@
 import React from "react";
 import "./About.css";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 export const About: React.FC = () => {
   return (
     <section className="about" id="about">
       <div className="container about-layout">
-        <div className="about-text">
+        <AnimatedSection as="div" variant="left" className="about-text">
           <div className="about-label">
             <span className="about-dot" />
             <span className="about-label-text">About Us</span>
@@ -28,8 +29,8 @@ export const About: React.FC = () => {
             If you are going to use a passage of Lorem Ipsum, you need to be
             sure.
           </p>
-        </div>
-        <div className="about-grid">
+        </AnimatedSection>
+        <AnimatedSection as="div" variant="right" className="about-grid">
           <div className="about-card about-card--stat">
             <div className="about-card-number">15+</div>
             <div className="about-card-label">Years Of Experience</div>
@@ -69,7 +70,7 @@ export const About: React.FC = () => {
               loading="lazy"
             />
           </div>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

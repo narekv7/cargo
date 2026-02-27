@@ -1,5 +1,6 @@
 import React from "react";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 export const CTASection: React.FC = () => {
   const backgroundImageUrl = assetPath("images/transport-logistics.png");
@@ -11,7 +12,7 @@ export const CTASection: React.FC = () => {
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
       aria-labelledby="cta-title"
     >
-      <div className="container">
+      <AnimatedSection as="div" variant="up" className="container">
         <h2 id="cta-title">
           Ready to move your cargo with confidence?
         </h2>
@@ -21,7 +22,7 @@ export const CTASection: React.FC = () => {
         <a href="#contact" className="btn cta-btn">
           Contact us
         </a>
-      </div>
+      </AnimatedSection>
     </section>
   );
 };

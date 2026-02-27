@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Services.css";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 const TABS = [
   { id: "air", label: "Air Freight" },
@@ -57,7 +58,7 @@ export const Services: React.FC = () => {
   return (
     <section className="services" id="services">
       <div className="container">
-        <div className="services-header">
+        <AnimatedSection as="div" variant="up" className="services-header">
           <div className="services-label">
             <span className="services-dot" />
             <span className="services-label-text">Our Freight Solutions</span>
@@ -65,7 +66,7 @@ export const Services: React.FC = () => {
           <h2 className="services-title">
             Expertly Managing Every Step From Transit To Warehousing
           </h2>
-        </div>
+        </AnimatedSection>
 
         <div className="services-tabs" role="tablist" aria-label="Service types">
           {TABS.map((tab) => (
@@ -96,7 +97,11 @@ export const Services: React.FC = () => {
                   aria-labelledby={`tab-${tab.id}`}
                   className={`services-tab-panel ${activeTab === tab.id ? "is-active" : ""}`}
                 >
-                  <div className="services-panel-image">
+                  <AnimatedSection
+                    as="div"
+                    variant="left"
+                    className="services-panel-image"
+                  >
                     <img
                       src={content.image}
                       alt={content.imageAlt}
@@ -104,14 +109,18 @@ export const Services: React.FC = () => {
                       height={320}
                       loading="lazy"
                     />
-                  </div>
-                  <div className="services-panel-text">
+                  </AnimatedSection>
+                  <AnimatedSection
+                    as="div"
+                    variant="right"
+                    className="services-panel-text"
+                  >
                     <h3 className="services-panel-headline">{content.headline}</h3>
                     <p className="services-panel-para">{content.paragraph}</p>
                     <a href="#quote" className="btn services-btn">
                       Request a Quote
                     </a>
-                  </div>
+                  </AnimatedSection>
                 </div>
               );
             })}

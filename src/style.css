@@ -365,30 +365,11 @@ textarea {
   padding: 1.9rem 1.75rem;
   border-radius: 8px;
   border: 1px solid var(--accent-red-30);
-  transition:
-    opacity 0.35s ease,
-    transform var(--ease),
-    box-shadow var(--ease);
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.feature-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.feature-card:nth-child(1) {
-  transition-delay: 0.05s;
-}
-.feature-card:nth-child(2) {
-  transition-delay: 0.1s;
-}
-.feature-card:nth-child(3) {
-  transition-delay: 0.15s;
-}
-.feature-card:nth-child(4) {
-  transition-delay: 0.2s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .feature-card:hover {
@@ -399,19 +380,20 @@ textarea {
 .feature-card .feature-icon {
   width: 40px;
   height: 40px;
-  margin-bottom: 1.25rem;
+  margin: 0 auto 1rem;
   object-fit: contain;
 }
 
 .feature-card h3 {
-  font-size: 1.125rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+  margin-bottom: 0.4rem;
   color: var(--dark);
 }
 
 .feature-card p {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: var(--dark-60);
+  line-height: 1.5;
 }
 
 .quote-section {
@@ -668,16 +650,54 @@ textarea {
 .footer-bottom a:hover {
   color: #fff;
 }
+
+/* Scroll-in animation utilities for sections and blocks */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.from-left {
+  transform: translate3d(-40px, 0, 0);
+}
+
+.animate-on-scroll.from-right {
+  transform: translate3d(40px, 0, 0);
+}
+
+.animate-on-scroll.from-top {
+  transform: translate3d(0, -40px, 0);
+}
+
+.animate-on-scroll.from-bottom {
+  transform: translate3d(0, 40px, 0);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 767.98px) {
+  /* Soften side translations on smaller screens to avoid jarring motion */
+  .animate-on-scroll.from-left,
+  .animate-on-scroll.from-right {
+    transform: translate3d(0, 28px, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

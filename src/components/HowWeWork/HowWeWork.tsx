@@ -1,5 +1,6 @@
 import React from "react";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 const STEPS = [
   {
@@ -33,7 +34,11 @@ export const HowWeWork: React.FC = () => {
   return (
     <section className="why-choose" id="how-we-work">
       <div className="container">
-        <div className="services-header">
+        <AnimatedSection
+          as="div"
+          variant="left"
+          className="services-header"
+        >
           <div className="about-label">
             <span className="about-dot" />
             <span className="about-label-text">How We Work</span>
@@ -41,23 +46,32 @@ export const HowWeWork: React.FC = () => {
           <h2 className="section-title">
             Fast and Reliable Shipping
           </h2>
-        </div>
+        </AnimatedSection>
 
         <div className="features-grid">
-          {STEPS.map((step) => (
-            <article key={step.key} className="feature-card">
-              <div>
-                <img
-                  src={step.icon}
-                  alt=""
-                  aria-hidden="true"
-                  className="feature-icon"
-                />
-                <h3>{step.title}</h3>
-              </div>
-              <p>{step.description}</p>
-            </article>
-          ))}
+          {STEPS.map((step, index) => {
+            const variant = index < 2 ? "left" : "right";
+
+            return (
+              <AnimatedSection
+                key={step.key}
+                as="article"
+                variant={variant}
+                className="feature-card"
+              >
+                <div>
+                  <img
+                    src={step.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="feature-icon"
+                  />
+                  <h3>{step.title}</h3>
+                </div>
+                <p>{step.description}</p>
+              </AnimatedSection>
+            );
+          })}
         </div>
       </div>
     </section>

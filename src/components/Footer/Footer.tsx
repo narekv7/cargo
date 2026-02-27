@@ -1,10 +1,15 @@
 import React from "react";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 export const Footer: React.FC = () => {
   return (
     <footer className="site-footer">
-      <div className="container footer-inner">
+      <AnimatedSection
+        as="div"
+        variant="up"
+        className="container footer-inner"
+      >
         <div className="footer-col-social">
           <a href="#hero" className="logo-link">
             <img
@@ -67,11 +72,15 @@ export const Footer: React.FC = () => {
             info@cargobulls.am
           </a>
         </div>
-      </div>
+      </AnimatedSection>
 
-      <div className="container footer-bottom">
+      <AnimatedSection
+        as="div"
+        variant="up"
+        className="container footer-bottom"
+      >
         <span>© {new Date().getFullYear()} CARGOBULLS. All rights reserved.</span>
-      </div>
+      </AnimatedSection>
     </footer>
   );
 };

@@ -1,11 +1,16 @@
 import React from "react";
 import { assetPath } from "../../utils/assetPath";
+import { AnimatedSection } from "../AnimatedSection/AnimatedSection";
 
 export const GlobalReach: React.FC = () => {
   return (
     <section className="global-reach" id="geography">
       <div className="container">
-        <div className="global-text">
+        <AnimatedSection
+          as="div"
+          variant="left"
+          className="global-text"
+        >
           <div className="about-label">
             <span className="about-dot" />
             <span className="about-label-text">Our Geography</span>
@@ -27,15 +32,20 @@ export const GlobalReach: React.FC = () => {
           <a href="#destinations" className="geo-btn">
             View destination list
           </a>
-        </div>
+        </AnimatedSection>
 
-        <div className="global-reach-media" aria-hidden="true">
+        <AnimatedSection
+          as="div"
+          variant="right"
+          className="global-reach-media"
+          aria-hidden="true"
+        >
           <img
             src={assetPath("images/map.png")}
             alt="World map with highlighted CargoBulls destinations"
             loading="lazy"
           />
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );
